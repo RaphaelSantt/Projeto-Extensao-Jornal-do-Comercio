@@ -12,7 +12,9 @@ return new class extends Migration {
             $table->foreignId('empresa_id')->constrained('empresas')->onDelete('cascade');
             $table->json('dados_financeiros')->nullable();
             $table->text('sentimento_mercado')->nullable();
+            $table->json('discussoes')->nullable(); // agora funciona
             $table->longText('conteudo_gerado')->nullable();
+
             $table->boolean('aprovado')->default(false);
             $table->timestamps();
         });
