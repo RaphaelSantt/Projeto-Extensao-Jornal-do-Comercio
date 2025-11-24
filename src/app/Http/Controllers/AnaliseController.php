@@ -20,6 +20,8 @@ class AnaliseController extends Controller
 
   public function gerar(Request $request)
 {
+
+    set_time_limit(300);
     $request->validate(['empresa_id' => 'required|exists:empresas,id']);
 
     $empresa = Empresa::findOrFail($request->empresa_id);
@@ -45,6 +47,8 @@ class AnaliseController extends Controller
 
     // Conteúdo inicial
 
+
+    
     $analise = Analise::create([
         'empresa_id' => $empresa->id,
         'dados_financeiros' => $dados,
