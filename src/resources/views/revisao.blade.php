@@ -1,21 +1,14 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <title>Painel de Revisão - {{ $analise->empresa->nome }}</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+@extends('layouts.app')
 
-  <style>
-    .fade-in { animation: fadeIn .5s ease-out; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .glass { backdrop-filter: blur(16px); }
-  </style>
-</head>
+@section('title', 'Revisão - Análises Financeiras')
 
-<body class="min-h-screen p-8 flex justify-center" style="background: rgba(209, 209, 209, 1)">
+@section('body-bg', 'background: rgba(240, 240, 240, 1)')
+
+@section('content')
+
+<div class="min-h-screen p-8 flex justify-center">
+
+
 
   <div class="max-w-6xl w-full mx-auto fade-in space-y-12">
 
@@ -23,9 +16,9 @@
     
 <a href="{{ route('dashboard') }}" 
    class="inline-flex items-center gap-3 px-10 py-4 rounded-xl 
-          bg-gray-750 hover:bg-gray-800 
+          bg-white hover:bg-purple-500
           border border-gray-700 
-          text-black font-bold 
+          text-black font-bold hover:text-white
           shadow-xl backdrop-blur-sm
           transform hover:scale-105 transition-all duration-300">
   ← Voltar ao Dashboard
@@ -178,7 +171,7 @@
 
     <!-- Revisão final e aprovação -->
 <form action="{{ route('aprovar', $analise->id) }}" method="POST" class="relative p-10 rounded-3xl bg-gradient-to-br from-gray-900 via-gray-850 to-black shadow-2xl overflow-hidden">
-  @csrf   <!-- AQUI ESTAVA O PROBLEMA -->
+  @csrf 
 
   <div class="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_center,_rgba(99,102,241,.35),_transparent_60%)]"></div>
   <div class="relative z-10 space-y-8">
@@ -193,8 +186,7 @@
          class="px-8 py-4 rounded-xl bg-gray-800/60 hover:bg-gray-800 border border-gray-700 text-gray-300 font-semibold transition">
         Cancelar
       </a>
-      <button type="submit"
-        class="px-10 py-4 rounded-xl bg-gradient-to-r from-green-600 to-emerald-700 hover:from-green-700 hover:to-emerald-800 text-white font-bold shadow-xl transform hover:scale-105 transition">
+      <button type="submit" class="w-auto py-4 px-6 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-lg shadow-lg transform hover:scale-[1.02] transition duration-200">
         Aprovar e Publicar
       </button>
     </div>
@@ -202,5 +194,6 @@
 </form>
 
   </div>
-</body>
-</html>
+        </div>
+
+        @endsection

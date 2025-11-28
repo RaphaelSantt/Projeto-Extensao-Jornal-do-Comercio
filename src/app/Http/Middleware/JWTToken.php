@@ -4,8 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Firebase\JWT\JWT;
-use Firebase\JWT\SignatureInvalidException;
 use Firebase\JWT\Key;
+use Firebase\JWT\SignatureInvalidException;
+use Firebase\JWT\ExpiredException;
+use Illuminate\Support\Facades\Auth;
 
 class JWTToken
 {

@@ -1,36 +1,22 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <title>Dashboard - Análises Financeiras</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+@extends('layouts.app')
 
-  <style>
-    .fade-in { animation: fadeIn .45s ease-out; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@section('title', 'Dashboard - Análises Financeiras')
 
-    @keyframes loading {
-      0% { width: 0%; }
-      100% { width: 100%; }
-    }
-  </style>
-</head>
+@section('body-bg', 'background: rgba(240, 239, 239, 1)')
 
-<body class=" min-h-screen p-10 flex justify-center" style="background: rgba(126, 126, 126, 1)">
+@section('content')
 
+       
 <div class="max-w-6xl w-full fade-in space-y-14">
 
-  <!-- HERO / APRESENTAÇÃO -->
+  <!-- HERO / APRESENTAÇÃO 
   <section class="relative w-full p-12 rounded-3xl bg-gradient-to-br from-gray-900 via-gray-850 to-black shadow-2xl overflow-hidden">
 
     <div class="absolute inset-0 opacity-[0.25] bg-[radial-gradient(circle_at_top_right,_rgba(99,102,241,.35),_transparent_60%)]"></div>
 
     <div class="relative z-10 text-white">
 
-      <!-- LOGO + TITULO -->
+    
       <div class="flex items-center gap-5 mb-10">
         <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/10 shadow-lg">
           <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
@@ -47,7 +33,7 @@
         </div>
       </div>
 
-      <!-- TEXTO HERO -->
+     
       <div class="max-w-3xl space-y-4 text-gray-200 text-lg leading-relaxed">
         <p>A Júlia analisa dados financeiros complexos, identifica padrões e entrega diagnósticos detalhados com precisão e velocidade.
           <br><br> O pedro analisa o que o mercado e a mídia estão dizendo sobre a empresa.
@@ -63,6 +49,8 @@
 
     </div>
   </section>
+
+  -->
 
   <!-- CARD: GERAR NOVA ANÁLISE -->
 <div class=" p-10 rounded-3xl shadow-2xl overflow-hidden bg-gradient-to-br from-gray-900 via-gray-850 to-black">
@@ -89,13 +77,7 @@
           @endforeach
         </select>
 
-<button type="submit"
-  class="bg-gray-900/70 hover:bg-gray-800 
-         border border-gray-700 hover:border-gray-600 
-         text-white font-bold 
-         px-8 py-4 rounded-xl 
-         shadow-2xl backdrop-blur-md 
-         transform hover:scale-105 transition-all duration-300">
+<button type="submit" class="w-auto py-4 px-6 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-lg shadow-lg transform hover:scale-[1.02] transition duration-200">
   Gerar análise
 </button>
       </div>
@@ -188,5 +170,5 @@
   });
 </script>
 
-</body>
-</html>
+    </div>
+@endsection
