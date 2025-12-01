@@ -187,7 +187,7 @@
         Cancelar
       </a>
       <button type="submit" class="w-auto py-4 px-6 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-lg shadow-lg transform hover:scale-[1.02] transition duration-200">
-        Aprovar e Publicar
+        Aprovar e Salvar
       </button>
     </div>
   </div>

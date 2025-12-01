@@ -58,36 +58,22 @@
         <!-- Brilho radial azul/violeta no canto superior esquerdo -->
         <div class="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_top_left,rgba(99,102,241,0.5),transparent_70%)] pointer-events-none"></div>
 
-        <div class="relative z-10 w-full max-w-md">
-          <div class="text-center mb-10">
-            <h2 class="text-3xl font-bold text-black mb-2">Bem-vindo de volta</h2>
-            <p class="text-black">Acesse sua conta corporativa</p>
-          </div>
+     
+       <div class="text-center mb-28">
+    <h2 class="text-3xl font-bold text-black mb-2">Bem-vindo!</h2>
+    <p class="text-black mb-8">Acesse nossa plataforma gratuitamente</p> 
+    
+    <button type="button"
+            onclick="window.location.href='{{ route('dashboard') }}'"
+            class="w-full py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-lg shadow-lg transform hover:scale-[1.02] transition duration-200">
+       Começar
+    </button>
+</div>
 
-          <form id="loginForm" name="loginForm" autocomplete="on" class="space-y-6">
-            <div>
-              <label for="email" class="block text-sm font-medium text-black mb-2">E-mail corporativo</label>
-              <input type="email" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition" placeholder="seunome@empresa.com">
-            </div>
+           
 
-            <div>
-              <label for="password" class="block text-sm font-medium text-black mb-2">Senha</label>
-              <input type="password" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 backdrop-blur-md text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition " placeholder="••••••••">
-            </div>
-
-            <div class="mt-10">
-            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold text-lg shadow-lg transform hover:scale-[1.02] transition duration-200" >
-              Entrar na plataforma
-            </button>
-
-            <div id="message" class="text-sm text-red-600 hidden" role="status" aria-live="polite"></div>
-
-            </div>
-
-            <div class="text-center mt-6">
-              <a href="#" class="text-indigo-300 hover:text-white text-sm transition">Esqueceu a senha?</a>
-            </div>
-          </form>
+        
+        
         </div>
       </section>
 

@@ -18,9 +18,13 @@
     </div>
 
     <nav class="relative z-10 flex gap-6">
-      <a href="{{ route('dashboard') }}" class="text-gray-200 hover:text-white">Dashboard</a>
-      <a href="" class="text-gray-200 hover:text-white">Configurações</a>
-      <a href="#" class="text-gray-200 hover:text-white">Sair</
+      <a href="{{ route('home') }}" 
+         class="text-gray-300 hover:text-white font-medium 
+                {{ request()->routeIs('dashboard') ? 'underline underline-offset-4' : '' }}">
+        Inicio 
+      </a>
+    
+
 
   </div>
 </header>

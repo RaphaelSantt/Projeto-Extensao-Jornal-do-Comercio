@@ -61,7 +61,7 @@
     <h2 class="text-3xl font-bold mb-2 text-white">Gerar nova análise</h2>
 
     <p class="text-gray-300 mb-7 text-lg">
-      Escolha uma empresa e permita que a Júlia prepare a análise financeira completa.
+      Escolha uma empresa e permita que nossos agentes preparem a análise financeira completa e redigam a matéria final.
     </p>
 
     <form action="{{ route('gerar') }}" method="POST" class="space-y-5">
@@ -83,13 +83,13 @@
       </div>
     </form>
 
-    <div id="loadingBar" class="hidden w-full h-2 bg-gray-700 rounded-full mt-6 overflow-hidden">
-      <div class="h-full bg-blue-500 animate-[loading_1.8s_infinite]"></div>
-    </div>
+<div id="loadingBar" class="hidden w-full h-2 bg-gray-700 rounded-full mt-6 overflow-hidden">
+  <div class="h-full w-full bg-blue-500 origin-left animate-loading"></div>
+</div>
 
-    <p id="loadingText" class="hidden text-gray-400 mt-3 italic text-sm flex items-center gap-2">
-      🧠 A Júlia está analisando os dados financeiros... aguarde.
-    </p>
+<p id="loadingText" class="hidden text-gray-400 mt-3 italic text-sm flex items-center gap-2">
+  🧠 Júlia, Pedro e Key estão analisando os dados financeiros... aguarde.
+</p>
   </div>
 </div>
 
@@ -124,7 +124,7 @@
           <td class="p-4 text-center">
             @if($a->aprovado)
               <span class="px-3 py-1 rounded-xl bg-green-700/30 text-green-300 font-semibold text-sm">
-                ✔️ Publicada
+                ✔️ Aprovada
               </span>
             @else
               <span class="px-3 py-1 rounded-xl bg-yellow-700/30 text-yellow-300 font-semibold text-sm">
@@ -157,16 +157,57 @@
 
 </div>
 
+<style>
+  @keyframes loading {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-loading {
+    animation: loading 1.8s infinite ease-in-out;
+  }
+
+  /* Opcional: brilho suave passando (efeito mais premium) */
+  .animate-loading::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(255, 255, 255, 0.4) 50%, 
+      transparent
+    );
+    animation: loading 1.8s infinite ease-in-out;
+  }
+</style>
+
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
     const bar = document.getElementById("loadingBar");
     const text = document.getElementById("loadingText");
 
-    form.addEventListener("submit", () => {
-      bar.classList.remove("hidden");
-      text.classList.remove("hidden");
-    });
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        // Opcional: impede múltiplos submits
+        if (form.classList.contains("submitting")) return;
+        form.classList.add("submitting");
+
+        bar.classList.remove("hidden");
+        text.classList.remove("hidden");
+
+        // Opcional: desabilita o botão
+        const submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = 'Analisando...';
+        }
+      });
+    }
   });
 </script>
 

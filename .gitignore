@@ -12,5 +12,7 @@
 /src/.idea
 /src/.vscode
 /db
+/.env
+.env
 .DS_Store
 Thumbs.db
