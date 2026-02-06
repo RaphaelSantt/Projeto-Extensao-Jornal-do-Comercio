@@ -1,74 +1,85 @@
-# Mentoria - API 2025.2
+# Sistema de Análise de Dados e Integração com APIs
 
-**Proposta:** Criar um grupo de agentes de inteligência artificial para analisar ações e gerar conteúdos recomendando (ou não) a compra, com base em dados reais e percepção de mercado.
+**Descrição**  
+Sistema web desenvolvido com **Laravel** para análise de dados, integração com APIs externas e gerenciamento de informações. O projeto é modular, escalável e utiliza tecnologias modernas para backend e frontend, garantindo **segurança**, **eficiência** e uma experiência fluida para os usuários.
 
-- **Júlia:** coleta os dados financeiros atualizados via Yahoo Finance.  
-- **Pedro:** analisa o que o mercado e a mídia estão dizendo sobre a empresa.  
-- **Key:** jornalista experiente que redige o conteúdo final, com base nos dados dos outros dois.  
-- **Fator humano:** revisa e aprova o conteúdo antes da publicação.  
+## Tecnologias Utilizadas
 
-O objetivo é produzir matérias financeiras claras, confiáveis e baseadas em dados, com apoio de IA e curadoria humana.
+### Backend
+- **PHP** 8.1
+- **Laravel** 10
+- **JWT** para autenticação
+- **Laravel Sanctum** para gerenciamento de sessões
+- **Guzzle** para integração com APIs externas
+- **Yahoo Finance API** para análise de dados financeiros
 
-Tecnologias que iremos utilizar:  
-- Inteligência Artificial (assistentes virtuais, processamento de linguagem natural, modelos de IA, etc.)  
-- HTML, CSS, JavaScript  
-- Laravel + PHP  
-- Python  
+### Frontend
+- **Blade Templates** para renderização dinâmica
+- CSS e JS personalizados
+- **Webpack Mix** para compilação e otimização
 
-Recomendação: já comecem a estudar algumas dessas tecnologias, para que na próxima semana estejam mais familiarizados com o conteúdo.  
+### Testes e Desenvolvimento
+- **PHPUnit** para testes automatizados
+- **Mockery** para simulação de dependências
+- **Faker** para geração de dados fictícios
 
----
+### Outras Ferramentas
+- **Docker** para padronização do ambiente
+- **Composer** para gerenciamento de dependências
 
-## Diretórios
+## Funcionalidades Principais
 
-- **src/** → Aplicação WordPress  
-- **db/** → Arquivos do banco de dados (**local!!! Não subir para o Git**)  
-- **DockerConfig/** → Arquivos de configuração do Docker  
+- **Autenticação e Segurança**  
+  Tokens JWT e Laravel Sanctum para autenticação segura
 
----
+- **Integração com APIs Externas**  
+  Conexão com Yahoo Finance para análise de dados financeiros  
+  Chamadas HTTP com Guzzle
 
-## Como rodar
+- **Gerenciamento de Dados**  
+  Banco de dados gerenciado com **Eloquent ORM**  
+  Migrações e seeders para configuração e popular o banco
 
-### 1. Levantar o ambiente (na raiz do projeto)
+- **Frontend Dinâmico**  
+  Renderização de páginas com Blade Templates  
+  Design responsivo e interativo
 
-```bash
-docker-compose up --build -d
-```
+- **Testes Automatizados**  
+  Testes unitários e de integração para garantir qualidade
 
-### 2. Acessando a aplicação
+- **Configuração de CORS**  
+  Permite acesso seguro de diferentes origens
 
-```bash
-http://localhost
-```
+- **Automação**  
+  Comandos Artisan para tarefas administrativas
 
-### 3. Acessando o container da aplicação
+## Estrutura do Projeto
 
-```bash
-docker exec -it agenda bash
-```
+- **Backend**: Gerencia autenticação, rotas, lógica de negócios e integração com APIs
+- **Frontend**: Interface dinâmica e responsiva, com integração direta ao backend
+- **Banco de Dados**: Estruturado com migrações e seeders para consistência
+- **Testes**: Localizados na pasta `tests/`, garantindo cobertura de código
 
-### 4. Instalando as dependências
+## Diferenciais
 
-```bash
-composer install
-```
+- Arquitetura **modular** e **escalável**
+- Suporte a múltiplos ambientes (desenvolvimento, produção)
+- Integração com serviços financeiros para análise de dados
+- Uso de **Docker** para consistência no ambiente de desenvolvimento
 
-### 5. Acessando o container do Banco de Dados
+Este sistema é ideal para **análise de dados financeiros** e **jornalísticos**, com foco em segurança, eficiência e experiência do usuário.
 
-```bash
-docker exec -it db_agenda bash
-```
 
----
+## Capturas de tela do projedo rodando
 
-## Problemas comuns no Windows
+<p align="center">
+  <img src="screenshots/1-login.png" width="45%" alt="Tela de login">
+  <img src="screenshots/2-dashboard.png" width="45%" alt="Dashboard">
+</p>
 
-```bash
-git config core.autocrlf input
-```
-
----
-
-## Observação Importante
-
-Caso você tenha problemas com o **Dockerfile**, efetue a instalação manualmente seguindo as instruções no arquivo [README2](README2.md).
+<p align="center">
+  <img src="imagens/imagem1.png" width="45%" alt="Página inicial">
+  <img src="imagens/imagem2.png" width="45%" alt="Dashboard Principal">
+    <img src="imagens/imagem3.png" width="45%" alt="Relatório">
+      <img src="imagens/imagem4.png" width="45%" alt="Relatório">
+</p>
